@@ -1,9 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>VeganBurgers</title>
+        <meta charset="utf-8"/>
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main>
+            <h1>Welcome to VeganBurgers!</h1>
+
+        <section>
+            <h3>Select burger</h3>
+            <p>This is where you execute burger selection</p>
+
+
+
+            <table>
+              <tbody>
+
+                <tr>
+                  <td align="center"><h4>The Black Been Burger</h4></td>
+                  <td align="center"><h4>The Fake-Halloumi Burger</h4></td>
+                  <td align="center"><h4>The Pumpkin Burger</h4></td>
+                </tr>
+                <tr>
+                  <td><img src="./img/blackbeenBurger.jpg" alt="Black been burger" title="Black been burger" height="200" width="200"></td>
+                  <td><img src="./img/halloumiBurger.jpg" alt="Halloumi burger" title="Halloumi burger" height="200" width="200"></td>
+                  <td><img src="./img/pumpkinBurger.jpg" alt="Pumpkin burger" title="Pumpkin burger" height="200" width="200"></td>
+                </tr>
+
+                <tr>
+                    <td><ul>
+                      <li>Black beens</li>
+                      <li>Bread</li>
+                      <li>Stuff</li>
+                      <li>Secret ingredients</li>
+                    </ul></td>
+
+                    <td><ul>
+                        <li>Fake halloumi</li>
+                        <li>Bread</li>
+                        <li>Secret ingredients</li>
+                        <li>Stuff</li>
+                      </ul></td>
+
+                    <td><ul>
+                      <li>Pumpkin</li>
+                      <li>Bread</li>
+                      <li>Stuff</li>
+                      <li>Secret ingredients</li>
+                    </ul></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+        <section id="customerInfo">
+            <h3>Customer information</h3>
+            <p>Please input the following information</p>
+            <h4>Delivery information:</h4>
+
+            <!-- Should add max length to feilds so hacker cannot send in code in fields (?)-->
+            <form>
+              <section id="contact">
+                <p>
+                  <label for="fullname">Full name</label><br>
+                  <input type="text" id="fullname" name="fn" required="required" placeholder="First and last name">
+                </p>
+                <p>
+                  <label for="email">E-mail</label><br>
+                  <input type="email" id="email" name="em" required="required" placeholder="E-mail">
+                </p>
+                <p>
+                  <label for="street">Street</label><br>
+                  <input type="text" id="street" name="st" required="required" placeholder="Street name">
+                </p>
+                <p>
+                  <label for="house">House</label><br>
+                  <input type="number" id="house" name="hn" required="required" placeholder="House number">
+                </p>
+              </section>
+
+
+            <p>
+              <label for="Payment">Payment options</label><br>
+              <select id="Payment" name="pay">
+                <option>MasterCard</option>
+                <option>Visa</option>
+                <option>Klarna</option>
+                <option>Swish</option>
+            </p>
+
+            <h4>Gender information:</h4>
+            <p>
+              <input type="radio" id="Female" name="rb" value="female">Female<br>
+              <input type="radio" id="Male" name="rb" value="male">Male<br>
+              <input type="radio" id="non-binary" name="rb" value="non-binary">Non-binary<br>
+              <input type="radio" id="Unknown" name="rb" value="unknown" checked>Unknown<br>
+            </p>
+
+          </form>
+          <input type="submit" value="Send information">
+
+        </section>
+
+      </main>
+        <footer>
+          <h3>VeganBurgers AB</h3>
+        </footer>
     </body>
 </html>
