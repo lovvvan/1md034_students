@@ -4,11 +4,34 @@
 body {
   font-family: 'PT Sans', sans-serif;
   font-size: 13pt;
+  text-align: center;
+  margin: 0;
 }
 
 h1 {
   font-family: 'permanent marker', cursive;
   font-size: 30pt;
+
+}
+
+table {
+  width: 80%;
+  align: center;
+  margin: auto;
+  text-align: center;
+}
+
+.burger {
+  margin: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button:hover {
+  background-color: grey;
+  cursor: pointer;
 }
 
 .allergy {
@@ -18,4 +41,17 @@ h1 {
 #burgers {
   background-color: black;
   color: white;
+}
+
+#burgers * {
+  align: center;
+}
+
+.burger {
+  width: 90%
+  margin: auto;
+}
+
+.gi * {
+  text-align: left;
 }
