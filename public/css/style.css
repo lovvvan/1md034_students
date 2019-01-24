@@ -1,0 +1,21 @@
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+@import url('https://fonts.googleapis.com/css?family=PT+Sans|Permanent+Marker');
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 13pt;
+}
+
+h1 {
+  font-family: 'permanent marker', cursive;
+  font-size: 30pt;
+}
+
+.allergy {
+  text-transform: uppercase;
+}
+
+#burgers {
+  background-color: black;
+  color: white;
+}
