@@ -3,19 +3,21 @@
     <head>
         <title>VeganBurgers</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="./css/reset.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
     <body>
         <main>
-            <h1>Welcome to VeganBurgers!</h1>
-
+          <header>
+            <h1 id="headline">Welcome to VeganBurgers!</h1>
+            <img src="./img/restaurant.jpg" alt="restaurant">
+          </header>
         <section id="burgers">
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
 
             <table>
               <tbody>
-
                 <tr>
                   <td><h4>The Black Been Burger</h4></td>
                   <td><h4>The Fake-Halloumi Burger</h4></td>
@@ -28,8 +30,8 @@
                 </tr>
 
                 <tr>
-                    <td><ul>
-                      <li>Black beens</li>
+                  <td><ul>
+                    <li>Black beens</li>
                       <li>Bread <span class="allergy">(Gluten)</span></li>
                       <li>Stuff</li>
                       <li>Secret ingredients</li>
@@ -55,13 +57,16 @@
         </section>
 
         <section id="customerInfo">
-            <h3>Customer information</h3>
-            <p>Please input the following information</p>
-            <h4>Delivery information:</h4>
+          <form>
+            <div>
+              <h3>Customer information</h3>
+              <p>Please input the following information</p>
+            </div>
 
             <!-- Should add max length to feilds so hacker cannot send in code in fields (?)-->
-            <form>
-              <section id="contact">
+
+              <div id="contact">
+                <h4>Delivery information:</h4>
                 <p>
                   <label for="fullname">Full name</label><br>
                   <input type="text" id="fullname" name="fn" required="required" placeholder="First and last name">
@@ -78,26 +83,29 @@
                   <label for="house">House</label><br>
                   <input type="number" id="house" name="hn" required="required" placeholder="House number">
                 </p>
-              </section>
+              </div>
 
+              <div>
+                <p>
+                  <label for="Payment"><h4>Payment options</h4></label><br>
+                  <select id="Payment" name="pay">
+                    <option>MasterCard</option>
+                    <option>Visa</option>
+                    <option>Klarna</option>
+                    <option>Swish</option>
+                  </select>
+                </p>
+              </div>
 
-            <p>
-              <label for="Payment">Payment options</label><br>
-              <select id="Payment" name="pay">
-                <option>MasterCard</option>
-                <option>Visa</option>
-                <option>Klarna</option>
-                <option>Swish</option>
-              </select>
-            </p>
-
-            <p class="gi">
-              <label>Gender information:</label><br>
-              <input type="radio" class="gi" id="Female" name="rb" value="female">Female<br>
-              <input type="radio" class="gi" id="Male" name="rb" value="male">Male<br>
-              <input type="radio" class="gi" id="non-binary" name="rb" value="non-binary">Non-binary<br>
-              <input type="radio" class="gi" id="Unknown" name="rb" value="unknown" checked>Unknown<br>
-            </p>
+            <div id="genderInfo">
+              <p>
+                <label><h4>Gender information:</h4></label><br>
+                <input type="radio" class="gi" id="Female" name="rb" value="female">Female<br>
+                <input type="radio" class="gi" id="Male" name="rb" value="male">Male<br>
+                <input type="radio" class="gi" id="non-binary" name="rb" value="non-binary">Non-binary<br>
+                <input type="radio" class="gi" id="Unknown" name="rb" value="unknown" checked>Unknown<br>
+              </p>
+            </div>
 
           </form>
           <button type="submit" value="Send information"><img src="./img/b_icon_s.jpg" width="20">Send Information</button>
