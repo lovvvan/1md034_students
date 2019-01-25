@@ -10,50 +10,53 @@
         <main>
           <header>
             <h1 id="headline">Welcome to VeganBurgers!</h1>
-            <img src="./img/restaurant.jpg" alt="restaurant">
+            <img class ="opac" src="./img/restaurant.jpg" alt="restaurant">
           </header>
-        <section id="burgers">
+
+
+          <section id="burgers">
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
 
-            <table>
-              <tbody>
-                <tr>
-                  <td><h4>The Black Been Burger</h4></td>
-                  <td><h4>The Fake-Halloumi Burger</h4></td>
-                  <td><h4>The Pumpkin Burger</h4></td>
-                </tr>
-                <tr>
-                  <td><img class="burger" src="./img/blackbeenBurger.jpg" alt="Black been burger" title="Black been burger" height="200" width="200"></td>
-                  <td><img class="burger" src="./img/halloumiBurger.jpg" alt="Halloumi burger" title="Halloumi burger" height="200" width="200"></td>
-                  <td><img class="burger" src="./img/pumpkinBurger.jpg" alt="Pumpkin burger" title="Pumpkin burger" height="200" width="200"></td>
-                </tr>
 
-                <tr>
-                  <td><ul>
+            <div class="wrapper">
+              <div class="box a">
+                <h4>The Black Been Burger</h4>
+                <img class="burger" src="./img/blackbeenBurger.jpg" alt="Black been burger" title="Black been burger" height="200" width="200">
+                <div class="ingredients">
+                  <ul>
                     <li>Black beens</li>
-                      <li>Bread <span class="allergy">(Gluten)</span></li>
-                      <li>Stuff</li>
-                      <li>Secret ingredients</li>
-                    </ul></td>
-
-                    <td><ul>
-                        <li>Fake halloumi</li>
-                        <li>Bread <span class="allergy">(Gluten)</span></li>
-                        <li>Secret ingredients</li>
-                        <li>Stuff</li>
-                      </ul></td>
-
-                    <td><ul>
-                      <li>Pumpkin</li>
-                      <li>Bread <span class="allergy">(Gluten)</span></li>
-                      <li>Stuff</li>
-                      <li>Secret ingredients <span class="allergy">(Peanuts)</span></li>
-                    </ul></td>
-                </tr>
-
-                </tbody>
-            </table>
+                    <li>Bread <span class="allergy">(Gluten)</span></li>
+                    <li>Stuff</li>
+                    <li>Secret ingredients</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="box b">
+                <h4>The Fake-Halloumi Burger</h4>
+                <img class="burger" src="./img/halloumiBurger.jpg" alt="Halloumi burger" title="Halloumi burger" height="200" width="200">
+                <div class="ingredients">
+                  <ul>
+                    <li>Fake halloumi</li>
+                    <li>Bread <span class="allergy">(Gluten)</span></li>
+                    <li>Secret ingredients</li>
+                    <li>Stuff</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="box c">
+                <h4>The Pumpkin Burger</h4>
+                <img class="burger" src="./img/pumpkinBurger.jpg" alt="Pumpkin burger" title="Pumpkin burger" height="200" width="200">
+                <div class="ingredients">
+                  <ul>
+                    <li>Pumpkin</li>
+                    <li>Bread <span class="allergy">(Gluten)</span></li>
+                    <li>Stuff</li>
+                    <li>Secret ingredients <span class="allergy">(Peanuts)</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
         </section>
 
         <section id="customerInfo">
@@ -99,12 +102,15 @@
 
             <div id="genderInfo">
               <p>
+                <div id="genderButtons">
                 <label><h4>Gender information:</h4></label><br>
                 <input type="radio" class="gi" id="Female" name="rb" value="female">Female<br>
                 <input type="radio" class="gi" id="Male" name="rb" value="male">Male<br>
                 <input type="radio" class="gi" id="non-binary" name="rb" value="non-binary">Non-binary<br>
                 <input type="radio" class="gi" id="Unknown" name="rb" value="unknown" checked>Unknown<br>
+              </div>
               </p>
+
             </div>
 
           </form>
