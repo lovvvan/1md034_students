@@ -5,7 +5,7 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="./css/reset.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <script src="js/js_script.js" defer></script>
+        <!--<script src="js/js_script.js" defer></script>-->
         <script src="https://vuejs.org/js/vue.js"></script>
         <script src="js/vue_script.js" defer></script>
     </head>
@@ -23,8 +23,22 @@
 
 
             <div id="wrapper">
-              <!--
 
+              <div v-for="burger in burgers" class="box"  v-bind:class=burger.box>
+                <h4> {{ burger.name }}</h4>
+                <img v-bind:class="burger" v-bind:src=burger.img
+                     v-bind:alt=burger.name v-bind:title="burger.name"
+                     width="200" height="200">
+                <div class="ingredients">
+                  <ul>
+                    <li>{{ burger.kCal }}</li>
+                    <li v-if="burger.gluten"> {{ 'Gluten' }}</li>
+                  </ul>
+                </div>
+              </div>
+
+
+              <!--
               <div class="box a">
                 <h4>The Black Been Burger</h4>
                 <img class="burger" src="./img/blackbeenBurger.jpg" alt="Black been burger" title="Black been burger" height="200" width="200">

@@ -5,7 +5,6 @@
   function MenuItem(name, img, kCal, gluten) {
     this.name = name;
     this.img = img;
-    //this.info = info;
     this.kCal = kCal;
     this.gluten = gluten;
     this.getInfo = function() {
