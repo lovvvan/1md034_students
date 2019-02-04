@@ -21,6 +21,29 @@
   var burgers    = [beenBurger, fakeHalloumiBurger, pumBurger];
   var boxLetters = ['a', 'b', 'c'];
 
+  var submitButton = document.getElementById('submitButton');
+  submitButton.onclick = function () {
+      console.log("Button clicked!");
+      var fullname = document.getElementById('fullname').value;
+      var email = document.getElementById('email').value;
+      var street = document.getElementById('street').value;
+      var house = document.getElementById('house').value;
+      var payment = document.getElementById('Payment').value;
+
+      var genderButtonsArray = document.getElementsByName('rb');
+      var gender;
+      for (i = 0; i < genderButtonsArray.length; i++) {
+        if (genderButtonsArray[i].checked == true) {
+          gender = genderButtonsArray[i].value;
+        }
+      }
+      var formArray = [fullname, email, street, house, payment, gender];
+      console.log(formArray);
+  }
+
+
+
+
   var index = 0;
   var i;
   for (i = 0; i < burgers.length; i++) {

@@ -6,8 +6,10 @@
         <link rel="stylesheet" type="text/css" href="./css/reset.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <!--<script src="js/js_script.js" defer></script>-->
+        <script type="text/javascript" src="js/menu.js"></script>
         <script src="https://vuejs.org/js/vue.js"></script>
-        <script src="js/vue_script.js" defer></script>
+
+        <script src="js/vue_script.js" defer></script>-->
     </head>
     <body>
 
@@ -34,6 +36,7 @@
                     <li>{{ burger.kCal }}</li>
                     <li v-if="burger.gluten"> {{ 'Gluten' }}</li>
                   </ul>
+                  <input type="checkbox" class="burgerChoice" name="bc" v-bind:value="burger.name">Pick this one<br>
                 </div>
               </div>
 
@@ -83,7 +86,8 @@
             </div>
         </section>
 
-        <section id="customerInfo">
+        <div id="orderDiv">
+        <section id="customerInfo" class="theOrder">
           <form>
             <div>
               <h3>Customer information</h3>
@@ -134,13 +138,29 @@
                 <input type="radio" class="gi" id="Unknown" name="rb" value="unknown" checked>Unknown<br>
               </div>
               </p>
-
             </div>
 
           </form>
-          <button type="submit" value="Send information"><img src="./img/b_icon_s.jpg" width="20">Send Information</button>
+          <button id="submitButton" v-on:click="sendOrder()" type="submit" value="Send information"><img src="./img/b_icon_s.jpg" width="20">Send Information</button>
 
         </section>
+
+        <section id="confirmation" class="theOrder" v-if="showorder">
+          <h3>Thank u love!</h4>
+          <p>Here is your confirmation</p>
+
+          <p>Your name: {{ fullname }}</p>
+          <p>Email: {{ email }}</p>
+          <p>Street: {{ street }}</p>
+          <p>House: {{ house }}</p>
+          <p>Payment: {{ payment }}</p>
+          <p>Gender: {{ gender }}</p>
+          <p>Burgers: {{ burgers }}</p>
+
+          <h4>Your order will be ready in max 30 min!</h4>
+
+        </section>
+        </div>
 
       </main>
         <footer><hr>
