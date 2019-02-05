@@ -174,3 +174,12 @@ button:hover {
   width: 10em;
   margin: auto;
 }
+
+#missingInfo {
+  color: red;
+}
+
+#missingInfo h2{
+  color: black;
+  margin: 30px;
+}

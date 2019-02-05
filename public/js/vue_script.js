@@ -44,6 +44,7 @@ var vm = new Vue({
 var vmButton = new Vue ({
   el: '#orderDiv',
   data: {
+    errors: [],
     showorder: false,
     fullname: "",
     email: "",
@@ -58,13 +59,20 @@ var vmButton = new Vue ({
       var formArray = getOrder();
       console.log(formArray),
       this.fullname = formArray[0],
-      this.email = formArray[1],
-      this.street = formArray[2],
-      this.house = formArray[3],
-      this.payment = formArray[4],
-      this.gender = formArray[5],
-      this.burgers = formArray[6].join(', '),
-      this.showorder = true
+      this.email    = formArray[1],
+      this.street   = formArray[2],
+      this.house    = formArray[3],
+      this.payment  = formArray[4],
+      this.gender   = formArray[5],
+      this.burgers  = formArray[6].join(', ');
+      this.errors   = [];
+      if(!this.fullname) {this.errors.push("Name")};
+      if(!this.email) {this.errors.push("Email")};
+      if(!this.street) {this.errors.push("Street")};
+      if(!this.house) {this.errors.push("House")};
+      if(!this.burgers) {this.errors.push("Please choose a burger")};
+
+      if(this.errors.length == 0) {this.showorder = true};
     }
   }
 })
