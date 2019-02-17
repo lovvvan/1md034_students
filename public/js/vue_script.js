@@ -1,5 +1,5 @@
 
-
+var socket = io();
 
 
 //var submitButton = document.getElementById('submitButton');
@@ -7,8 +7,6 @@
 function getOrder() {
     var fullname = document.getElementById('fullname').value;
     var email    = document.getElementById('email').value;
-    var street   = document.getElementById('street').value;
-    var house    = document.getElementById('house').value;
     var payment  = document.getElementById('Payment').value;
 
     var genderButtonsArray = document.getElementsByName('rb');
@@ -27,7 +25,7 @@ function getOrder() {
       }
     }
 
-    var formArray = [fullname, email, street, house, payment, gender, chosenBurgersArray];
+    var formArray = [fullname, email, payment, gender, chosenBurgersArray];
 
     return formArray;
 }
@@ -48,31 +46,60 @@ var vmButton = new Vue ({
     showorder: false,
     fullname: "",
     email: "",
-    street: "",
-    house: "",
     payment: "",
     gender: "",
     burgers: "",
+    orders: { show:false },
+    orderNr: 0
   },
+
   methods: {
       sendOrder: function() {
-      var formArray = getOrder();
-      console.log(formArray),
-      this.fullname = formArray[0],
-      this.email    = formArray[1],
-      this.street   = formArray[2],
-      this.house    = formArray[3],
-      this.payment  = formArray[4],
-      this.gender   = formArray[5],
-      this.burgers  = formArray[6].join(', ');
-      this.errors   = [];
-      if(!this.fullname) {this.errors.push("Name")};
-      if(!this.email) {this.errors.push("Email")};
-      if(!this.street) {this.errors.push("Street")};
-      if(!this.house) {this.errors.push("House")};
-      if(!this.burgers) {this.errors.push("Please choose a burger")};
+        var formArray = getOrder();
+        console.log(formArray),
+        this.fullname = formArray[0],
+        this.email    = formArray[1],
+        this.payment  = formArray[2],
+        this.gender   = formArray[3],
+        this.burgers  = formArray[4],
+        this.errors   = [];
+        if(!this.fullname) {this.errors.push("Name")};
+        if(!this.email) {this.errors.push("Email")};
+        if(!this.burgers) {this.errors.push("Please choose a burger")};
+        if(this.errors.length == 0) {this.showorder = true}
+      },
 
-      if(this.errors.length == 0) {this.showorder = true};
-    }
-  }
+      displayOrder: function(event) {
+        var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                      y: event.currentTarget.getBoundingClientRect().top};
+        this.orders = { show: true,
+                        details: { x: event.clientX - 10 - offset.x,
+                                   y: event.clientY - 10 - offset.y },
+                        orderItems: [],
+                      };
+      },
+
+      /*getNext: function () {
+        var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
+          return Math.max(last, next);
+        }, 0);
+        return lastOrder + 1;
+      },*/
+
+      getNext: function() {
+        this.orderNr = this.orderNr + 1;
+        return this.orderNr;
+      },
+
+
+      addOrder: function (event) {
+        this.sendOrder();
+        socket.emit("addOrder", { orderId: this.getNext(),
+                                  details: this.orders.details,
+                                  orderItems: this.burgers,
+                                  orderInfo: [this.fullname, this.email],
+                                });
+
+      }
+    },
 })

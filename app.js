@@ -8,7 +8,8 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var path = require('path');
- 
+var orderNr = 0;
+
 // Pick arbitrary port for server
 var port = 3000;
 app.set('port', (process.env.PORT || port));
@@ -30,14 +31,14 @@ app.get('/dispatcher', function (req, res) {
   res.sendFile(path.join(__dirname, 'views/dispatcher.html'));
 });
 
-// Store data in an object to keep the global namespace clean and 
+// Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
 function Data() {
   this.orders = {};
 }
 
 /*
-  Adds an order to to the queue
+  Adds an order to the queue
 */
 Data.prototype.addOrder = function (order) {
   //Store the order in an "associative array" with orderId as key
@@ -50,12 +51,20 @@ Data.prototype.getAllOrders = function () {
 
 var data = new Data();
 
+/*
+function getNext(order) {
+  this.orderNr = this.orderNr + 1;
+  order.orderId = orderNr;
+  return order.orderId;
+}*/
+
 io.on('connection', function (socket) {
   // Send list of orders when a client connects
   socket.emit('initialize', { orders: data.getAllOrders() });
 
   // When a connected client emits an "addOrder" message
   socket.on('addOrder', function (order) {
+    //order.orderId = getNext(order);
     data.addOrder(order);
     // send updated info to all connected clients, note the use of io instead of socket
     io.emit('currentQueue', { orders: data.getAllOrders() });

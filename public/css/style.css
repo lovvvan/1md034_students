@@ -62,6 +62,10 @@ div {
   margin: 50px 0;
 }
 
+.dot {
+  margin: 0;
+}
+
 #wrapper {
   display: grid;
   grid-gap: 10px;
@@ -182,4 +186,11 @@ button:hover {
 #missingInfo h2{
   color: black;
   margin: 30px;
+}
+
+#conf_div {
+  text-align: left;
+  border: 2px solid lightgrey;
+  width: 400px;
+  margin: auto;
 }
